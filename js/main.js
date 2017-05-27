@@ -13,6 +13,7 @@ Vue.component("header-footer", {
             <div class="container">
                 <div class="row">
                     <p class="white-text center-align">Developed By Sarbajit Saha</p>
+                    <p class="white-text center-align">Hosted on Github. Powered by <a href="https://developer.deeparteffects.com/">Deep Art Effects</a></p>
                 </div>
             </div>
         </footer>
