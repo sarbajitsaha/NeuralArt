@@ -41,9 +41,10 @@ Vue.component("style-image", {
                     'optimizeForPrint': false,
                     'imageSize': 1800
                 };
+                Materialize.toast('Uploading image', 1000, 'rounded')
                 deepArtEffectsClient.uploadPost(null, body)
                     .then(function (result) {
-                        console.log("Successfully uploaded image");
+                        Materialize.toast('Image uploaded. Processing image', 1000, 'rounded')
                         let submissionId = result.data.submissionId;
                         resultCheck = setInterval(imageReadyCheck.bind(null, submissionId), 2500);
                     }).catch(function (result) {
@@ -62,6 +63,7 @@ function imageReadyCheck(submissionId) {
         .then(function (result) {
             console.log(result.data.status);
             if (result.data.status == "finished") {
+                Materialize.toast('Processing finished', 1000, 'rounded')
                 var preview = document.querySelector('#target-img');
                 preview.src = result.data.url;
                 clearInterval(resultCheck);
@@ -91,6 +93,7 @@ function selectImage() {
 }
 
 function getStyles(arr) {
+    Materialize.toast('Loading styles', 2000, 'rounded');
     deepArtEffectsClient.stylesGet()
         .then(function (result) {
             let styles = result.data;
@@ -101,8 +104,10 @@ function getStyles(arr) {
                 };
                 arr.push(style);
             }
+            Materialize.toast('Styles loaded!', 1000, 'rounded');
         }).catch(function (result) {
             console.log(result);
+            Materialize.toast('Error in loading styles', 3000, 'rounded');
         });
 }
 

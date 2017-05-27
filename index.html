@@ -30,7 +30,7 @@
             <input type="file" onchange="selectImage()" id="inp">
             <div class="container">
                 <div class="carousel">
-                    <div is="style-image" v-for="(style, index) in styles" v-bind:key="style" v-bind:id="style.id" v-bind:src="style.src"></div>
+                        <div is="style-image" v-for="(style, index) in styles" v-bind:key="style" v-bind:id="style.id" v-bind:src="style.src"></div>
                 </div>
             </div>
             <a @click="uploadImage" class="btn btn-floating btn-large waves-effect waves-light" id="upload"><i class="material-icons">cloud_upload</i></a>
