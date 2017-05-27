@@ -1,0 +1,70 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+*{ margin:0; box-sizing: border-box; }
+
+.title{
+    margin-left: 15px;
+    font-size: x-large;
+    font-style: oblique;
+}
+
+
+.style-img{
+    display:inline-block;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.img-btn{
+    white-space: nowrap;
+}
+
+.footer-text{
+    padding: 0;
+    text-align: center;
+}
+
+footer{
+    margin-top: 10px;
+}
+
+#upload,#download{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#download{
+    float: right;
+}
+
+#inp,#download-link{
+    display: none;
+    visibility: hidden;
+}
+
+.carousel{
+    height: 170px;
+    margin-top: 15px;
+}
+
+#styles{
+    height: 70%;
+    width: 70%;
+}
+
+footer{
+    padding-bottom: 5px;
+}
+
+#target-img{
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    max-height: 240px;  
+}

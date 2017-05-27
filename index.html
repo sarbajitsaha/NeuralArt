@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Neural Art</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.3"></script>
+
+</head>
+
+<body>
+
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    <div id="root">
+        <header-footer>
+            <img id="target-img" src="http://www.kaisahan.com.ph/wp-content/uploads/2012/07/Blank.gif" />
+            <input type="file" onchange="selectImage()" id="inp">
+            <div class="container">
+                <div class="carousel">
+                    <div is="style-image" v-for="(style, index) in styles" v-bind:key="style" v-bind:id="style.id" v-bind:src="style.src"></div>
+                </div>
+            </div>
+            <a @click="uploadImage" class="btn btn-floating btn-large waves-effect waves-light" id="upload"><i class="material-icons">cloud_upload</i></a>
+            <a @click="downloadImage" class="btn btn-floating btn-large waves-effect waves-light" id="download"><i class="material-icons">cloud_download</i></a>
+            <a id="download-link" download="neural-art-image.jpg" href="" />
+        </header-footer>
+    </div>
+
+
+    <script type="text/javascript" src="js/lib/axios.standalone.js"></script>
+    <script type="text/javascript" src="js/lib/hmac-sha256.js"></script>
+    <script type="text/javascript" src="js/lib/sha256.js"></script>
+    <script type="text/javascript" src="js/lib/hmac.js"></script>
+    <script type="text/javascript" src="js/lib/enc-base64.js"></script>
+    <script type="text/javascript" src="js/lib/url-template.js"></script>
+    <script type="text/javascript" src="js/lib/sigV4Client.js"></script>
+    <script type="text/javascript" src="js/lib/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="js/lib/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="js/lib/utils.js"></script>
+    <script type="text/javascript" src="js/apigClient.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
