@@ -13,7 +13,6 @@ Vue.component("header-footer", {
             <div class="container">
                 <div class="row">
                     <p class="white-text center-align">Developed By Sarbajit Saha</p>
-                    
                 </div>
             </div>
         </footer>
@@ -40,7 +39,7 @@ Vue.component("style-image", {
                     'styleId': this.id,
                     'imageBase64Encoded': targetImageBase64.replace(new RegExp("data:image/[a-z]*;base64,", 'i'), ""),
                     'optimizeForPrint': false,
-                    'imageSize': 1000
+                    'imageSize': 1800
                 };
                 deepArtEffectsClient.uploadPost(null, body)
                     .then(function (result) {
