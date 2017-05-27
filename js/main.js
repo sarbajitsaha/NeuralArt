@@ -44,10 +44,11 @@ Vue.component("style-image", {
                 Materialize.toast('Uploading image', 1000, 'rounded')
                 deepArtEffectsClient.uploadPost(null, body)
                     .then(function (result) {
-                        Materialize.toast('Image uploaded. Processing image', 1000, 'rounded')
+                        Materialize.toast('Image uploaded. Processing image', 4000, 'rounded')
                         let submissionId = result.data.submissionId;
-                        resultCheck = setInterval(imageReadyCheck.bind(null, submissionId), 2500);
+                        imageReadyCheck(submissionId);
                     }).catch(function (result) {
+                        Materialize.toast('Error in uploading. Please try again.', 1000, 'rounded');
                         console.log(result);
                     });
             }
@@ -61,15 +62,16 @@ function imageReadyCheck(submissionId) {
     };
     deepArtEffectsClient.resultGet(params)
         .then(function (result) {
-            console.log(result.data.status);
             if (result.data.status == "finished") {
-                Materialize.toast('Processing finished', 1000, 'rounded')
+                Materialize.toast("Processing finished",3000,'rounded');
                 var preview = document.querySelector('#target-img');
                 preview.src = result.data.url;
-                clearInterval(resultCheck);
+            } else {
+                setTimeout(imageReadyCheck.bind(null, submissionId), 2500);
             }
         }).catch(function (result) {
             console.log("Error checking status");
+            Materialize.toast('Error in processing. Please try again.', 1000, 'rounded');
         });
 }
 
