@@ -1,5 +1,11 @@
 'use strict';
 
+var deepArtEffectsClient = apigClientFactory.newClient({
+	apiKey: 'XXcFTw7iek2dGydlWelEsOgRlGeqjQY7vEDD5Ck0',
+	accessKey: 'AKIAISHAJ5FXD3MOPC6Q',
+    secretKey: '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'
+});
+
 Vue.component("header-footer", {
     template: `
     <div id="main">
